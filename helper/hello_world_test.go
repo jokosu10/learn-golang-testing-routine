@@ -99,3 +99,18 @@ func TestHelloWorldSusilo(t *testing.T) {
 		t.FailNow()
 	}
 }
+
+func BenchmarkSub(b *testing.B) {
+	b.Run("Joko", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Joko")
+		}
+	})
+
+	b.Run("Susilo", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Susilo")
+		}
+	})
+
+}
